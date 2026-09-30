@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aleš Zajc — Data Analyst, programmer and data automation specialist. R, Python, SQL, Qlik Sense, VBA and Alteryx.">
+  <meta name="author" content="Aleš Zajc">
+  <title>Aleš Zajc — Data Analyst</title>
+  <meta property="og:title" content="Aleš Zajc — Data Analyst">
+  <meta property="og:description" content="Data analytics, automation and programming.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+    :root {
+      --bg: #0d0b18;
+      --bg2: #121024;
+      --text: #f4f0fa;
+      --muted: #a49bb8;
+      --line: rgba(255,255,255,.10);
+      --pink: #ff67ae;
+      --purple: #bd78ff;
+      --blue: #55a9ff;
+      --green: #4bd6a1;
+      --orange: #f5aa45;
+      --card: rgba(255,255,255,.045);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% 15%, rgba(133, 65, 190, .16), transparent 32%),
+        radial-gradient(circle at 10% 55%, rgba(53, 113, 190, .10), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", system-ui, sans-serif;
+      line-height: 1.65;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6vw;
+      background: rgba(13,11,24,.84);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ff8bc1, #c987ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    nav a:hover { color: white; }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      max-width: 1120px;
+      margin: auto;
+      padding: 100px 6vw 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      color: #80778f;
+      letter-spacing: .28em;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 34px;
+      height: 2px;
+      margin: 0 13px 4px 0;
+      background: var(--pink);
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(64px, 10vw, 122px);
+      line-height: .95;
+      margin: 0 0 34px;
+      max-width: 900px;
+      letter-spacing: -.045em;
+      background: linear-gradient(100deg, #eee8f8 5%, #d99cff 52%, #ff74b7 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      max-width: 780px;
+      font-size: 20px;
+      color: #aaa1b9;
+    }
+    .intro strong { color: #ff72b4; }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin: 0 0 35px;
+    }
+    .pill {
+      border: 1px solid;
+      border-radius: 999px;
+      padding: 8px 17px;
+      font-size: 14px;
+      font-weight: 600;
+      background: rgba(255,255,255,.035);
+    }
+    .pink { color: var(--pink); border-color: rgba(255,103,174,.35); }
+    .purple { color: var(--purple); border-color: rgba(189,120,255,.35); }
+    .blue { color: var(--blue); border-color: rgba(85,169,255,.35); }
+    .green { color: var(--green); border-color: rgba(75,214,161,.35); }
+    .orange { color: var(--orange); border-color: rgba(245,170,69,.35); }
+
+    section {
+      max-width: 1120px;
+      margin: auto;
+      padding: 95px 6vw;
+    }
+    section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 48px;
+      margin: 0 0 38px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.22);
+    }
+    .card h3 { margin-top: 0; font-size: 21px; }
+    .card p { color: var(--muted); margin-bottom: 0; }
+
+    .contact {
+      text-align: center;
+      padding-bottom: 120px;
+    }
+    .contact p { color: var(--muted); }
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 23px;
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      background: linear-gradient(100deg, #e85c9d, #9564d9);
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 6vw;
+      color: #777082;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 20px; }
+      nav .links a { margin-left: 13px; font-size: 12px; }
+      .hero { padding-top: 70px; }
+      .grid { grid-template-columns: 1fr; }
+      section h2 { font-size: 38px; }
+      .intro { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">Aleš Zajc</div>
+    <div class="links">
+      <a href="#overview">Overview</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="eyebrow">DATA ANALYST · PROGRAMMER · AUTOMATION</div>
+      <h1>Hi, I'm<br>Aleš Zajc</h1>
+
+      <div class="pills">
+        <span class="pill pink">Data Analytics</span>
+        <span class="pill purple">R · Python</span>
+        <span class="pill blue">SQL</span>
+        <span class="pill green">Automation</span>
+        <span class="pill orange">Qlik Sense</span>
+        <span class="pill pink">VBA · Excel</span>
+        <span class="pill purple">Alteryx</span>
+      </div>
+
+      <p class="intro">
+        I'm a <strong>data analyst</strong> focused on turning business data into useful
+        information, building reliable reporting solutions, and automating repetitive work.
+        I enjoy working at the intersection of analytics, programming and business.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Selected work</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Business Analytics</h3>
+          <p>Analytical reporting, KPI development and data-driven insights for business operations.</p>
+        </article>
+        <article class="card">
+          <h3>Data Automation</h3>
+          <p>Automating extraction, transformation and reporting workflows with Python, VBA and R.</p>
+        </article>
+        <article class="card">
+          <h3>Dashboards</h3>
+          <p>Interactive reporting and visualization with Qlik Sense and modern data workflows.</p>
+        </article>
+        <article class="card">
+          <h3>Data Engineering</h3>
+          <p>ETL, data validation, SQL and reproducible processes designed to reduce manual work.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>What I work with</h2>
+      <div class="pills">
+        <span class="pill pink">R</span>
+        <span class="pill purple">Python</span>
+        <span class="pill blue">SQL</span>
+        <span class="pill green">Qlik Sense</span>
+        <span class="pill orange">Alteryx</span>
+        <span class="pill pink">Excel / Power Query</span>
+        <span class="pill purple">VBA</span>
+        <span class="pill blue">SAP</span>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Let's connect.</h2>
+      <p>Interested in data, automation or analytics?</p>
+      <a class="button" href="mailto:YOUR_EMAIL@example.com">Get in touch</a>
+    </section>
+  </main>
+
+  <footer>© 2026 Aleš Zajc · alzac.github.io</footer>
+</body>
+</html>
