@@ -12,17 +12,41 @@
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
     :root {
-      --bg: #0d0b18;
-      --bg2: #121024;
-      --text: #f4f0fa;
-      --muted: #a49bb8;
-      --line: rgba(255,255,255,.10);
-      --pink: #ff67ae;
-      --purple: #bd78ff;
-      --blue: #55a9ff;
-      --green: #4bd6a1;
-      --orange: #f5aa45;
-      --card: rgba(255,255,255,.045);
+      --bg: #0b1220;
+      --bg2: #0f1c2f;
+      --text: #edf6ff;
+      --muted: #a9b8cc;
+      --line: rgba(155, 188, 255, 0.16);
+      --accent: #1a5fe3;
+      --pink: #ff70b4;
+      --purple: #9d84ff;
+      --blue: #6ab7ff;
+      --green: #66d9aa;
+      --orange: #ffb562;
+      --card: rgba(17, 29, 46, 0.82);
+      --nav-bg: rgba(10,16,27,.86);
+      --button-text: #ffffff;
+      --button-border: rgba(122, 168, 255, 0.25);
+      --button-bg: rgba(19, 27, 41, 0.9);
+    }
+
+    html[data-theme="light"] {
+      --bg: #f7fbff;
+      --bg2: #eef6ff;
+      --text: #0f223a;
+      --muted: #445a73;
+      --line: rgba(19, 57, 94, 0.12);
+      --accent: #1a5fe3;
+      --pink: #d7407b;
+      --purple: #4d73e8;
+      --blue: #1d67ea;
+      --green: #148665;
+      --orange: #c96d1f;
+      --card: rgba(255,255,255,0.94);
+      --nav-bg: rgba(255,255,255,0.8);
+      --button-text: #0f223a;
+      --button-border: rgba(19, 57, 94, 0.18);
+      --button-bg: rgba(255,255,255,0.96);
     }
 
     * { box-sizing: border-box; }
@@ -36,6 +60,7 @@
       color: var(--text);
       font-family: "DM Sans", system-ui, sans-serif;
       line-height: 1.65;
+      transition: background-color .25s ease, color .25s ease;
     }
 
     nav {
@@ -47,7 +72,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 6vw;
-      background: rgba(13,11,24,.84);
+      background: var(--nav-bg);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--line);
     }
@@ -56,19 +81,43 @@
       font-family: "Playfair Display", serif;
       font-size: 25px;
       font-weight: 700;
-      background: linear-gradient(90deg, #ff8bc1, #c987ff);
-      -webkit-background-clip: text;
-      color: transparent;
+      color: var(--accent);
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
-      margin-left: 30px;
       font-weight: 600;
       font-size: 14px;
     }
-    nav a:hover { color: white; }
+    nav a:hover { color: var(--text); }
+
+    .theme-toggle {
+      appearance: none;
+      border: 1px solid var(--button-border);
+      background: var(--button-bg);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(26, 95, 227, 0.5);
+    }
 
     .hero {
       min-height: calc(100vh - 76px);
@@ -81,7 +130,7 @@
     }
 
     .eyebrow {
-      color: #80778f;
+      color: #4a5d75;
       letter-spacing: .28em;
       font-size: 13px;
       font-weight: 600;
@@ -104,17 +153,15 @@
       margin: 0 0 34px;
       max-width: 900px;
       letter-spacing: -.045em;
-      background: linear-gradient(100deg, #eee8f8 5%, #d99cff 52%, #ff74b7 100%);
-      -webkit-background-clip: text;
-      color: transparent;
+      color: var(--accent);
     }
 
     .intro {
       max-width: 780px;
       font-size: 20px;
-      color: #aaa1b9;
+      color: #394d66;
     }
-    .intro strong { color: #ff72b4; }
+    .intro strong { color: var(--accent); }
 
     .pills {
       display: flex;
@@ -176,23 +223,26 @@
       margin-top: 15px;
       padding: 12px 23px;
       border-radius: 999px;
-      color: white;
+      color: #ffffff;
       text-decoration: none;
-      background: linear-gradient(100deg, #e85c9d, #9564d9);
+      background: var(--accent);
       font-weight: 700;
+      box-shadow: none;
     }
 
     footer {
       border-top: 1px solid var(--line);
       padding: 25px 6vw;
-      color: #777082;
+      color: #5d6f83;
       text-align: center;
       font-size: 13px;
     }
 
     @media (max-width: 700px) {
       nav { padding: 0 20px; }
-      nav .links a { margin-left: 13px; font-size: 12px; }
+      .links { gap: 10px; }
+      nav a { font-size: 12px; }
+      .theme-toggle { padding: 7px 10px; font-size: 12px; }
       .hero { padding-top: 70px; }
       .grid { grid-template-columns: 1fr; }
       section h2 { font-size: 38px; }
@@ -208,6 +258,10 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle light mode" aria-pressed="false">
+        <span class="toggle-icon" aria-hidden="true">☀️</span>
+        <span class="toggle-text">Light mode</span>
+      </button>
     </div>
   </nav>
 
@@ -277,5 +331,31 @@
   </main>
 
   <footer>© 2026 Aleš Zajc · alzac.github.io</footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.querySelector('.theme-toggle');
+    const toggleIcon = document.querySelector('.toggle-icon');
+    const toggleText = document.querySelector('.toggle-text');
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      const isLight = theme === 'light';
+      toggle.setAttribute('aria-pressed', String(isLight));
+      toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+      toggleIcon.textContent = isLight ? '🌙' : '☀️';
+      toggleText.textContent = isLight ? 'Dark mode' : 'Light mode';
+      localStorage.setItem('theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+
+    toggle.addEventListener('click', () => {
+      const nextTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(nextTheme);
+    });
+  </script>
 </body>
 </html>
